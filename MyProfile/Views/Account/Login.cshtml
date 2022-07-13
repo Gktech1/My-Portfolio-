@@ -1,5 +1,6 @@
 ﻿@model MyProfile.ViewModel.LoginViewModel
 @{
+    ViewData["Title"] = "Login";
    // var returnUrl = string.IsNullOrWhiteSpace(ViewBag.ReturnUrl) ? "/" : ViewBag.ViewBag.ReturnUrl;
 }
 
@@ -36,14 +37,16 @@
         <div class="col-md-2">
             <button type="submit" class="btn btn-success form-control">Login</button>
         </div>
+        @*<p><a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a></p>*@
         <p><a asp-action="Register">Register as a new user</a></p>
         <p><a asp-action="ForgotPassword">Forgot your password!</a></p>
     </div>
 </form>
 
-@section Scripts
+@*@section Scripts
 {
     @{
         Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+*@

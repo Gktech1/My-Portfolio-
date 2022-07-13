@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Profile</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    @*<link rel="stylesheet" href="/vendor/scss/style.css"/>*@
 
     <!-- Favicons -->
     <link href="~/img/favicon.png" rel="icon">
@@ -33,6 +33,7 @@
     <!-- //Custom Theme files -->
     <!-- web font -->
     <link href='//fonts.googleapis.com/css?family=Text+Me+One' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -47,9 +48,9 @@
             <ul>
                 
                 <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="Home">Home</a></li>
-                <li><a class="nav-link scrollto" asp-action="Project" asp-controller="User">Project</a></li>
+                <li><a class="nav-link scrollto" asp-action="Project" asp-controller="Project">Project</a></li>
                 <li><a class="nav-link scrollto" asp-action="Contact" asp-controller="Home">Contact </a></li>
-                @*<li><a class="nav-link scrollto" asp-action="Admin" asp-controller="Home">Admin </a></li>*@
+                @*<li><a class="nav-link scrollto" asp-action="Dashboard" asp-controller="Admin"> Admin </a></li>*@
                 @*<partial name="_LoginPartialCustom"/>*@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -58,13 +59,31 @@
 
     </div>
 </header><!-- End Header -->
+<div class="background">
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                @*   @Html.Partial("_Form")*@
+                <main role="main" class="pb-3">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["Success"]
+                        </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["Error"]
+                        </div>
+                    }
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
-
-    <footer id="footer">
+</div>
+<footer id="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -132,10 +151,10 @@
     </div>
     </footer><!-- End Footer -->
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="assets/js/main.js"></script>*@
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="~/js/site.js" asp-append-version="true"></script>
+     <script src="~/js/site.js" asp-append-version="true"></script>*@
      <script src="~/js/main.js"></script>
 
 <!-- Vendor JS Files -->
@@ -149,14 +168,60 @@
 <script src="~/vendor/waypoints/noframework.waypoints.js"  asp-append-version="true"></script>
 <script src="~/vendor/php-email-form/validate.js"  asp-append-version="true"></script>
 
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+@*<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>*@
+
+<script>
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+    const textArray = ["UI/UX Designer", "Freelancer", "Software Engineer", "Agile Leader"];
+    const typingDelay = 200;
+    const erasingDelay = 10;
+    const newTextDelay = 100; // Delay between current and next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            setTimeout(erase, newTextDelay);
+        }
+    }
+    function erase() {
+        if (charIndex > 0) {
+            // add class 'typing' if there's none
+            if (!cursorSpan.classList.contains("typing")) {
+                cursorSpan.classList.add("typing");
+            }
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, 0);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+        if (textArray.length) setTimeout(type, newTextDelay + 250);
+    });
+</script>
+
 
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
 
 
-
+@*<div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>*@
 
 
 

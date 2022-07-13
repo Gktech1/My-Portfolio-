@@ -8,11 +8,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mailjet.Client.Resources;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using MyProfile.Data;
+using MyProfile.Data.IRepository;
+using MyProfile.Data.Repository;
+using MyProfile.Models;
 using MyProfile.Services;
+using MyProfile.Services.IServices;
+using MyProfile.Settings;
+using MyProfile.ViewModel;
 
 namespace MyProfile
 {
@@ -29,6 +37,14 @@ namespace MyProfile
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(AutoMapperProfiles));
+            services.AddScoped<ISkillServices, SkillServices>();
+            services.AddScoped<IProjectServices, ProjectServices>();
+            services.AddScoped<IExperienceServices, ExperienceServices>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IExperienceRepository, ExperienceRepository>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.AddTransient<IEmailSender, MailJetEmailSender>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();

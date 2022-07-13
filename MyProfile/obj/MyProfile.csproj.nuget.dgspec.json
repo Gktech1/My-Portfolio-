@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Decagon\\Source\\Repos\\Project-Works\\MyProfile\\MyProfile.csproj": {}
+    "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Decagon\\Source\\Repos\\Project-Works\\MyProfile\\MyProfile.csproj": {
+    "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Source\\Repos\\Project-Works\\MyProfile\\MyProfile.csproj",
+        "projectUniqueName": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj",
         "projectName": "MyProfile",
-        "projectPath": "C:\\Users\\Decagon\\Source\\Repos\\Project-Works\\MyProfile\\MyProfile.csproj",
+        "projectPath": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj",
         "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Source\\Repos\\Project-Works\\MyProfile\\obj\\",
+        "outputPath": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Mailjet.Api": {
               "target": "Package",
               "version": "[3.0.0, )"

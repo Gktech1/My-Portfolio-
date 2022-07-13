@@ -2,12 +2,7 @@
 
 namespace MyProfile.Controllers
 {
-    public class UserController : Controller
-
+    public class UserController:Controller
     {
-    public IActionResult Project()
-    {
-        return View();
-    }
     }
 }

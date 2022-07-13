@@ -15,11 +15,11 @@ namespace MyProfile.Controllers
         private readonly  IEmailSender _emailSender;
 
 
-        public AccountController(UserManager<IdentityUser> userManager , SignInManager<IdentityUser> signInManager, IEmailSender IemailSender)
+        public AccountController(UserManager<IdentityUser> userManager , SignInManager<IdentityUser> signInManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _emailSender = IemailSender;
+            _emailSender = emailSender;
         }
 
         [HttpGet]
