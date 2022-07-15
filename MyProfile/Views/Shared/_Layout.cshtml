@@ -48,13 +48,45 @@
             <ul>
                 
                 <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="Home">Home</a></li>
-                <li><a class="nav-link scrollto" asp-action="Project" asp-controller="Project">Project</a></li>
+                <li><a class="nav-link scrollto" asp-action="Index" asp-controller="Project">Project</a></li>
                 <li><a class="nav-link scrollto" asp-action="Contact" asp-controller="Home">Contact </a></li>
-                @*<li><a class="nav-link scrollto" asp-action="Dashboard" asp-controller="Admin"> Admin </a></li>*@
-                @*<partial name="_LoginPartialCustom"/>*@
+                <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown"><a ><span>Admin</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                
+                                @if(User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item">
+                                        @*<a class="nav-link" href="#">Hello @UserManager.GetUserName(User)</a>*@
+                                        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form id="logoutForm" method="post" class="form-inline" asp-controller="Account" asp-action="LogOff">
+                                            <button type="submit" class="btn nav-link">Sign Out</button>
+                                        </form>
+                                    </li> 
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Account" asp-action="Login">Sign In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Account" asp-action="Register">Sign Up</a>
+                                    </li>
+                                }
+                               @* <li><a href="#">Sign In</a></li>
+                                <li><a href="#">Sign Up</a></li>*@
+                            </ul>
+                        </li>
+                        <li><a  asp-controller="Skill" asp-action="Index"> Skill</a></li>
+                        <li><a  asp-controller="Experience" asp-action="Index"> Experience </a></li>
+                    </ul>
+                </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-            <partial name="_LoginPartialCustom"/>
+           @*<partial name="_LoginPartialCustom"/>*@
         </nav><!-- .navbar -->
 
     </div>
@@ -217,11 +249,7 @@
 </html>
 
 
-@*<div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
+
 
 
 

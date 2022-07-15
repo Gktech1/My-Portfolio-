@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyProfile.Models;
 using MyProfile.Services.IServices;
@@ -13,26 +14,28 @@ namespace MyProfile.Controllers
         public ProjectController(IProjectServices project)
         {
             _project = project;
-            
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var result = await _project.AllList();
+            if (result != null)
+            {
+                return View(result);
+            }
             return View();
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            if (id == 0)
-                return NotFound();
-            var data = _project.GetById(id);
-            return View();
+            var data =  await _project.GetById(id);
+            return View(data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ListOfProjectViewModel project)
+        public async Task<IActionResult> Update(Project project)
         {
             if (!ModelState.IsValid)
             {
@@ -45,7 +48,7 @@ namespace MyProfile.Controllers
 
             }
 
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult Create() => View();
@@ -58,7 +61,7 @@ namespace MyProfile.Controllers
                 await _project.Create(project);
                 TempData["Success"] = "The item has been successfully Created!";
             }
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
         public async Task<IActionResult> Delete(Project project)
         {
@@ -68,12 +71,12 @@ namespace MyProfile.Controllers
                 TempData["Success"] = "The details has been deleted successfully";
             }
 
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
 
         }
-        public IActionResult Details()
+       /* public IActionResult Details()
         {
             return View();
-        }
+        }*/
     }
 }

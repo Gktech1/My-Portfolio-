@@ -10,7 +10,7 @@ namespace MyProfile.Services.IServices
         Task<IEnumerable<Skill>> AllList();
         Task<Skill> GetById(int id);
         Task<bool> Create(LIstOfSkillsViewModel skill);
-        Task<bool> EditByDetails(LIstOfSkillsViewModel skill);
+        Task<bool> EditByDetails(Skill skill);
         Task<bool> RemovedData(Skill skill);
     }
 }

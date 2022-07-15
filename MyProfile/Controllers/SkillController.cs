@@ -16,19 +16,30 @@ namespace MyProfile.Controllers
             _skill = skill;
             
         }
+
+        public async Task<IActionResult> Index()
+        {
+            var result = await _skill.AllList();
+            if (result != null)
+            {
+                return View(result);
+            }
+            return View();
+        }
+
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
             if (id == 0)
                 return NotFound();
-            var data = _skill.GetById(id);
-            return View();
+            var data = await _skill.GetById(id);
+            return View(data);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(LIstOfSkillsViewModel skill)
+        public async Task<IActionResult> Update(Skill skill)
         {
             if (!ModelState.IsValid)
             {

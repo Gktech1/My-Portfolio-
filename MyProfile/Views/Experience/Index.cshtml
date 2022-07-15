@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Experience>
+
+<section id="experience" class="experience">
+<div class="container" data-aos="fade-up">
+    <div class="section-title">
+        <h2>Experience</h2>
+        <h3>Check our <span>Experiences</span></h3>
+        <p>The following entails the list of my work experiences!</p>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="/img/portfolio/Decagon.png" width="100%" height="225" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text"> <input type="hidden" asp-for="@item.Id" /></p>
+                        <p class="card-text">@item.Name</p>
+                        <p class="card-text">@item.Location</p>
+                        <p class="card-text">@item.Role</p>
+                        <p class="card-text">@item.Year</p>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+</section>
+
+<script src="assets/js/main.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/main.js"></script>
+
+<!-- Vendor JS Files -->
+
+<script src="~/vendor/purecounter/purecounter.js"  asp-append-version="true"></script>
+<script src="~/vendor/aos/aos.js"  asp-append-version="true"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"  asp-append-version="true"></script>
+<script src="~/vendor/glightbox/js/glightbox.min.js"  asp-append-version="true"></script>
+<script src="~/vendor/isotope-layout/isotope.pkgd.min.js"  asp-append-version="true"></script>
+<script src="~/vendor/swiper/swiper-bundle.min.js"  asp-append-version="true"></script>
+<script src="~/vendor/waypoints/noframework.waypoints.js"  asp-append-version="true"></script>
+<script src="~/vendor/php-email-form/validate.js"  asp-append-version="true"></script>

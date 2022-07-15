@@ -33,10 +33,9 @@ namespace MyProfile.Services
             var addSkill = _mapper.Map<Skill>(skill);
             return await _skill.Add(addSkill);
         }
-        public async Task<bool> EditByDetails(LIstOfSkillsViewModel skill)
+        public async Task<bool> EditByDetails(Skill skill)
         {
-            var editInfo = _mapper.Map<Skill>(skill);
-            return await _skill.UpdateDataToDb(editInfo);
+            return await _skill.UpdateDataToDb(skill);
         }
 
         public async Task<bool> RemovedData(Skill skill)

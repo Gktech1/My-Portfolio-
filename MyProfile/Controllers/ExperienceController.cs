@@ -22,31 +22,42 @@ namespace MyProfile.Controllers
             
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var result = await _experience.AllList();
+            if (result != null)
+            {
+                return View(result);
+            }
+            return View();
+        }
+
+
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
             if (id == 0)
                 return NotFound();
-            var data =  _experience.GetById(id);
-            return View();
+            var data = await  _experience.GetById(id);
+            return View(data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ListOfExperiencesViewModel expView)
+        public async Task<IActionResult> Update(Experience experience)
         {
             if (!ModelState.IsValid)
             {
-                return View(expView);
+                return View(experience);
             }
             else
             {
-                await _experience.EditByDetails(expView);
+                await _experience.EditByDetails(experience);
                 TempData["Success"] = "The item has been successfully Updated!";
                 
             }
 
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult Create() => View();
@@ -59,7 +70,7 @@ namespace MyProfile.Controllers
                 await _experience.Create(expView);
                 TempData["Success"] = "The item has been successfully Created!";
             }
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
         public async Task<IActionResult> Delete(Experience experience)
         {
@@ -69,13 +80,8 @@ namespace MyProfile.Controllers
                 TempData["Success"] = "The details has been deleted successfully";
             }
             
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
 
         }
-
-        /*public IActionResult Details()
-        {
-            return View();
-        }*/
     }
 }

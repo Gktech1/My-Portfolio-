@@ -10,7 +10,7 @@ namespace MyProfile.Services.IServices
         Task<IEnumerable<Experience>> AllList();
         Task<Experience> GetById(int id); 
         Task<bool> Create(ListOfExperiencesViewModel expView);
-        public Task<bool> EditByDetails(ListOfExperiencesViewModel expView);
+        public Task<bool> EditByDetails(Experience experience);
         Task<bool> RemovedData(Experience experience);
         
     }

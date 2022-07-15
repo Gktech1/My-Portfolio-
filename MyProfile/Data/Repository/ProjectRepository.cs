@@ -23,7 +23,7 @@ namespace MyProfile.Data.Repository
 
         public async Task<Project> GetByIdAsync(int id)
         {
-            return await _context.Project.Include(i => i.Name).FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Project.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<bool> Add(Project project)

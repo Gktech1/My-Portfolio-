@@ -35,10 +35,9 @@ namespace MyProfile.Services
             var addExp = _mapper.Map<Experience>(expView);
             return await _experience.Add(addExp);
         }
-        public async Task <bool> EditByDetails(ListOfExperiencesViewModel expView)
-        { 
-            var editInfo = _mapper.Map<Experience>(expView); 
-            return await _experience.UpdateDataToDb(editInfo);
+        public async Task <bool> EditByDetails(Experience experience)
+        {
+            return await _experience.UpdateDataToDb(experience);
         }
 
         public async Task<bool> RemovedData(Experience experience)

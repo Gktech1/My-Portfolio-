@@ -21,7 +21,7 @@ namespace MyProfile.Data.Repository
 
         public async Task<Skill> GetByIdAsync(int id)
         {
-            return await _context.Skill.Include(i => i.Name).FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Skill.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<bool> Add(Skill skill)

@@ -10,7 +10,7 @@ namespace MyProfile.Services.IServices
         Task<IEnumerable<Project>> AllList();
         Task<Project> GetById(int id);
         Task<bool> Create(ListOfProjectViewModel project);
-        Task<bool> EditByDetails(ListOfProjectViewModel project);
+        Task<bool> EditByDetails(Project project);
         Task<bool> RemovedData(Project project);
     }
 }

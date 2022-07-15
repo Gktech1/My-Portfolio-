@@ -21,7 +21,7 @@ namespace MyProfile.Services
         }
         public async Task<IEnumerable<Project>> AllList()
         {
-            return await _project.GetAll();
+            return  await _project.GetAll();
         }
 
         public async Task<Project> GetById(int id)
@@ -33,10 +33,10 @@ namespace MyProfile.Services
             var addProject = _mapper.Map<Project>(project);
             return await _project.Add(addProject);
         }
-        public async Task<bool> EditByDetails(ListOfProjectViewModel project)
+        public async Task<bool> EditByDetails(Project project)
         {
-            var editInfo = _mapper.Map<Project>(project);
-            return await _project.UpdateDataToDb(editInfo);
+           // var editInfo = _mapper.Map<Project>(project);
+            return await _project.UpdateDataToDb(project);
         }
 
         public async Task<bool> RemovedData(Project project)
