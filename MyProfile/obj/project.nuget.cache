@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YGzIIunXEpBDo2b6mTLjffaTOgToeeTSgfHPnAOXoQlSOi1DUYGs7rOr6Hc75RDbCw091Yz7xI4pcdtJvM8+Uw==",
+  "dgSpecHash": "dJxTEDWqQDku7N9Re84GGDD1UAgBWTTJYeLM/kPj7xicbhkwFLzbqsZzVtWj7XLa38v1uquY9Rg8pHReVW8iTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj",
+  "projectFilePath": "C:\\Users\\Decagon\\Desktop\\My Folio\\week-8-task-Gktech1\\MyProfile\\MyProfile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Decagon\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

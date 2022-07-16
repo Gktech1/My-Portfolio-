@@ -7739,11 +7739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj",
+      "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\My Folio\\week-8-task-Gktech1\\MyProfile\\MyProfile.csproj",
       "projectName": "MyProfile",
-      "projectPath": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\MyProfile.csproj",
+      "projectPath": "C:\\Users\\Decagon\\Desktop\\My Folio\\week-8-task-Gktech1\\MyProfile\\MyProfile.csproj",
       "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Decagon\\source\\repos\\Profile\\MyProfile\\obj\\",
+      "outputPath": "C:\\Users\\Decagon\\Desktop\\My Folio\\week-8-task-Gktech1\\MyProfile\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
