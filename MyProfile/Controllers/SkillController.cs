@@ -52,7 +52,7 @@ namespace MyProfile.Controllers
 
             }
 
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult Create() => View();
@@ -65,7 +65,7 @@ namespace MyProfile.Controllers
                 await _skill.Create(skill);
                 TempData["Success"] = "The item has been successfully Created!";
             }
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
         }
         public async Task<IActionResult> Delete(Skill skill)
         {
@@ -75,12 +75,19 @@ namespace MyProfile.Controllers
                 TempData["Success"] = "The details has been deleted successfully";
             }
 
-            return RedirectToAction("Dashboard", "Admin");
+            return RedirectToAction("Index", "Dashboard");
 
         }
-        public IActionResult Details()
+        public async Task<IActionResult>  Details(int id)
+
         {
-            return View();
+            var skill = await _skill.GetById(id);
+            if (skill == null)
+            {
+                Response.StatusCode = 404;
+                return View("Error");
+            }
+            return View(skill);
         }
     }
-}
+}                                                                                                                                                                                 

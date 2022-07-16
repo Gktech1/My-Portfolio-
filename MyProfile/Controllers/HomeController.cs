@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 
         public IActionResult Index()
         {
+           // throw new Exception("Deliberate ERROR!!!");
             return View();
         }
 
@@ -35,10 +36,12 @@ using System.Threading.Tasks;
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
+
+    /*  [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+      public IActionResult Error()
+      {
+          return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+      }*/
 }
+

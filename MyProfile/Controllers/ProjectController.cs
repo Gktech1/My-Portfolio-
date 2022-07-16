@@ -1,19 +1,24 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MyProfile.Models;
 using MyProfile.Services.IServices;
 using MyProfile.ViewModel;
+using NLog;
+using ILogger = NLog.ILogger;
 
 namespace MyProfile.Controllers
 {
     public class ProjectController : Controller
     {
         private readonly IProjectServices _project;
+        private readonly ILogger<ProjectController> _logger;
 
-        public ProjectController(IProjectServices project)
+        public ProjectController(IProjectServices project, ILogger<ProjectController> logger)
         {
             _project = project;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -74,9 +79,16 @@ namespace MyProfile.Controllers
             return RedirectToAction("Index", "Dashboard");
 
         }
-       /* public IActionResult Details()
-        {
-            return View();
-        }*/
+        public async Task<IActionResult> Details(int id)
+        
+             {
+            var project = await _project.GetById(id);
+            if (project == null)
+            {
+                Response.StatusCode = 404;
+                return View("Error");
+            }
+            return View(project);
+        }
     }
 }

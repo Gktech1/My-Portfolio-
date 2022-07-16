@@ -11,7 +11,7 @@
         </div>
 
         <br /> <br />
-        <div class="container">
+        <div class="container row mx-5">
             @*<h2 class="display-4 fw-normal">Projects</h2>*@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
@@ -19,13 +19,17 @@
                 {
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" src="/img/apple-touch-icon.png" width="100%" height="225" alt="Card image cap">
+                            <img class="card-img-top" src="/img/portfolio/projectLogo.jpg" width="100%" height="225" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text"> <input type="hidden" asp-for="@item.Id" /></p>
+                                <p class="card-text"> <input type="hidden" asp-for="@item.Id"/></p>
+                                <h5 class="card-title">Project Name</h5>
                                 <p class="card-text">@item.Name</p>
+                                <h5 class="card-title">Description</h5>
                                 <p class="card-text">@item.Description</p>
-                                <p class="card-text">@item.ProjectLink</p>
-                                <p class="card-text">@item.Year</p>
+                                <p>
+                                    <a style="color: #ffffff; background-color: blue"class="btn mx-5" href=@item.ProjectLink>  Click 
+                                        Me
+                                    </a> </p>
                             </div>
                         </div>
 
@@ -34,7 +38,6 @@
 
             </div>
         </div>
-    </div>
     </div>
 </section>
 

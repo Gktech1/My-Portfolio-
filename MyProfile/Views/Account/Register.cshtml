@@ -1,50 +1,82 @@
 ﻿@model MyProfile.ViewModel.RegisterViewModel
 
-<h1 class="text-info">Register</h1>
-<form asp-controller="Account" asp-action="Register" method="post" role="form"> 
-    <h4>Create a new account </h4>   
-    <hr/>
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="Email" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="Email" class="form-control"/>
-            <span asp-validation-for="Email" class="text-danger"></span>
+@*<h1 class="text-info">Register</h1>*@
+<div class="row">
+<section id="register" class="register">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Sign Up</h2>
+            <h3>Sign Up  <span>Here!</span></h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-2">
+                <div class="row">
+                    <div class="col-md-8 offset-3">
+                        <form asp-action="Register" asp-controller="Account" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword" class="control-label"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-primary" value="Sign Up">Sign Up</button>
+                                    <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a>
+                                </div>
+                                @*<a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a>*@
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Name" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="Name" class="form-control"/>
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="Password" class="form-control"/>
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="ConfirmPassword" class="form-control"/>
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-success form-control">Sign Up</button>
-        </div>
-        @*<a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a>*@
-    </div>
-</form>
-@*
-    @section Scripts
-    {
-        @{
-             Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-    }*@
-     
+</section>
+</div>
+<script src="assets/js/main.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/main.js"></script>
+
+<!-- Vendor JS Files -->
+
+<script src="~/vendor/purecounter/purecounter.js" asp-append-version="true"></script>
+<script src="~/vendor/aos/aos.js" asp-append-version="true"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+<script src="~/vendor/glightbox/js/glightbox.min.js" asp-append-version="true"></script>
+<script src="~/vendor/isotope-layout/isotope.pkgd.min.js" asp-append-version="true"></script>
+<script src="~/vendor/swiper/swiper-bundle.min.js" asp-append-version="true"></script>
+<script src="~/vendor/waypoints/noframework.waypoints.js" asp-append-version="true"></script>
+<script src="~/vendor/php-email-form/validate.js" asp-append-version="true"></script>
+
+<!-- Vendor JS Files -->
+@*<script src="assets/vendor/purecounter/purecounter.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+*@
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+

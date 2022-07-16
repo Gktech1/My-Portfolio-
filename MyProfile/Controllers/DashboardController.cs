@@ -30,5 +30,17 @@ namespace MyProfile.Controllers
 
             return View(dashboard);
         }
+
+        public IActionResult Details(int id)
+        {
+            var project = _context.Project.ToListAsync();
+            if (project == null)
+            {
+                Response.StatusCode = 500;
+                return View("Error");
+            }
+
+            return View(project);
+        }
     }
 }

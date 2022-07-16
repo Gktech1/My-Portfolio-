@@ -83,5 +83,17 @@ namespace MyProfile.Controllers
             return RedirectToAction("Index", "Dashboard");
 
         }
+
+        public async Task<IActionResult> Details(int id)
+
+        {
+            var  experience = await _experience.GetById(id);
+            if (experience == null)
+            {
+                Response.StatusCode = 404;
+                return View("Error");
+            }
+            return View(experience);
+        }
     }
 }
